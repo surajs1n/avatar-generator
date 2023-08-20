@@ -9,7 +9,9 @@ import ai.generator.avatar.pojo.DallE2Request;
 import ai.generator.avatar.pojo.DallE2Response;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class AvatarGeneratorProcessor {
@@ -39,14 +41,13 @@ public class AvatarGeneratorProcessor {
         
         final DallE2Response response = openAIClient.generateImage(dallE2Request, input.getOpenAIToken());
 
-        List<AvatarDetails> avatarList = new ArrayList<>();
-        if (response != null && response.getData() != null) {
-            avatarList = response.getData()
-                    .stream()
-                    .map(imageDetails -> AvatarDetails.builder().avatarUrl(imageDetails.getUrl()).build())
-                    .collect(Collectors.toList());
-        }
-        
+        final List<AvatarDetails> avatarList = Optional.ofNullable(response)
+                .map(DallE2Response::getData)
+                .orElse(Collections.emptyList())
+                .stream()
+                .map(imageDetails -> AvatarDetails.builder().avatarUrl(imageDetails.getUrl()).build())
+                .collect(Collectors.toList());
+
         return AvatarGeneratorOutput.builder()
                 .createdAt(response != null ? response.getCreated() : 0)
                 .avatarList(avatarList)
