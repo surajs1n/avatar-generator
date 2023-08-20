@@ -34,7 +34,7 @@ public class AvatarGeneratorProcessor {
 
     public AvatarGeneratorOutput generateImages(final AvatarGeneratorInput input) {
         final DallE2Request dallE2Request = DallE2Request.builder()
-                .prompt(input.getDescription())
+                .prompt("create avatar using the description, " + input.getDescription())
                 .n(input.getNumberOfImages())
                 .size(input.getImageResolution().getValue())
                 .build();

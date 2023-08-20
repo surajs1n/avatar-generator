@@ -14,8 +14,8 @@ import okhttp3.Response;
 import java.io.IOException;
 
 public class OpenAIClientImpl implements OpenAIClient {
-    private static final String OPEN_AI_URL = "https://api.openai.com/v1";
-    private static final String CREATE_IMAGE = "/images/generations";
+    private static final String OPEN_AI_URL = "https://api.openai.com";
+    private static final String CREATE_IMAGE = "/v1/images/generations";
     private static final MediaType JSON = MediaType.parse("application/json");
     private static final DallE2Response DEFAULT_DALL_E2_RESPONSE = DallE2Response.builder().build();
     private static final String DEFAULT_JSON_OBJECT = "{}";
