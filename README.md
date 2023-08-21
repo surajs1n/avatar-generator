@@ -4,8 +4,8 @@
 
 🚀 Our Avatar Generator project lets you turn your descriptions into breathtaking avatars that truly represent YOU. Dive into a world of limitless creativity, where each pixel carries a piece of your imagination. 🎉 Your avatar, your rules – seize the reins of personalization today and embark on an exciting journey into the future! 🌟
 
-![Avatar1|50x50](avatar-1.jpeg)  
-![Avatar2|50x50](avatar-2.jpeg)
+<img src="avatar-1.jpeg" width="250" height="250" />
+<img src="avatar-2.jpeg" width="250" height="250" />
 
 ## How are we doing?
 Introducing [DellE2](https://labs.openai.com/): the powerhouse behind our avatar creation! With cutting-edge technology, DellE2 seamlessly converts your input into unique, personalized avatars.
